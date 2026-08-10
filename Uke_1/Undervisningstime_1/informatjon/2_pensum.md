@@ -17,5 +17,3 @@ _For å "teste" deres progresjon igjennom de kommende ukene, vil det bli satt op
 - Ikke bruk noe den gir dere hvis dere ikke forstår det
 - Husk at dere lærer best når dere skriver selv!
 - Bruk hverandre, fagstoffet (Moodle / Inside) og lærerne først hvis dere trenger hjelp.
-- AI er et optimaliseringsverktøy - Fint å bruke for å generere ting man allerede kan for å øke hastigheten på produksjonen - ikke optimal ifht progresjon av egen læring.
-- Bruk med måte!
