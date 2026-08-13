@@ -4,34 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intro</title>
+    <style>
+      body {
+        font-family:
+          "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      div {
+        max-width: 700px;
+      }
+      .box {
+        background-color: bisque;
+        border-radius: 3rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .flex {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+          "left1 right1"
+          "left2 right2";
+      }
+      .grid-left1 {
+        grid-area: left1;
+      }
+    </style>
   </head>
   <body>
-    <h1>Velkommen!</h1>
-    <h2>Dagens plan:</h2>
-    <ul>
-      <li>
-        <h3>Litt repetisjon av CSS</h3>
-        <ul>
-          <li>Gå litt igjennom noen vanlig brukte CSS-styles</li>
-          <li>Hvordan bruke console for testing av CSS</li>
-        </ul>
-      </li>
-      <li>
-        <h3>Intro til JavaScript</h3>
-        <ul>
-          <li>Funksjoner</li>
-          <li>Endre innhold på elementer ved bruk av ID</li>
-          <li>Kjøre funksjoner: onclick, onload, direkte i fila.</li>
-        </ul>
-      </li>
-      <li>
-        <h3>Endre style med funksjoner</h3>
-        <ul>
-          <li>Endre utseende til et element ved hjelp av onclick.</li>
-          <li>inline ved bruk av .style</li>
-          <li>klassehåndtering ved bruk av classlist</li>
-        </ul>
-      </li>
-    </ul>
+    <div class="flex">
+      <h1>Velkommen!</h1>
+      <h2>Dagens plan:</h2>
+      <ul class="box grid">
+        <li>
+          <h3>Litt repetisjon av CSS</h3>
+          <ul>
+            <li>Gå litt igjennom noen vanlig brukte CSS-styles</li>
+            <li>Hvordan bruke console for testing av CSS</li>
+          </ul>
+        </li>
+        <li class="grid-left1">
+          <h3>Intro til JavaScript</h3>
+          <ul>
+            <li>Funksjoner</li>
+            <li>Endre innhold på elementer ved bruk av ID</li>
+            <li>Kjøre funksjoner: onclick, onload, direkte i fila.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Endre style med funksjoner</h3>
+          <ul>
+            <li>Endre utseende til et element ved hjelp av onclick.</li>
+            <li>inline ved bruk av .style</li>
+            <li>klassehåndtering ved bruk av classlist</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>

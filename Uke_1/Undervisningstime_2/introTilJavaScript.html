@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+    <style>
+      body {
+        background-color: rgb(33, 33, 33);
+        color: aliceblue;
+      }
+      .titleText {
+        color: aqua;
+        font-size: 50px;
+        font-family:
+          "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+          Arial, sans-serif;
+        border: 1px dotted purple;
+        background-color: purple;
+      }
+      .text {
+        background-color: blue;
+      }
+      .circle {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background-color: aliceblue;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="topText">Du er ikke logget inn</h2>
+    <button id="logInButton" onclick="logIn()">Log inn</button>
+
+    <div id="circle" onclick="changeCircle()" class="circle"></div>
+
+    <script>
+      function changeCircle() {
+        document.getElementById("circle").classList.toggle("yellow");
+        console.log("trykket på!");
+      }
+
+      function logIn() {
+        document.getElementById("topText").innerHTML = "Velkommen!";
+        document.getElementById("logInButton").style.backgroundColor = "red";
+
+        document.getElementById("topText").classList.add("titleText", "text");
+      }
+    </script>
+  </body>
+</html>
