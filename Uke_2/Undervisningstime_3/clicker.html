@@ -6,7 +6,21 @@
     <title>Clicker-eksempel</title>
   </head>
   <body>
+    <h2 id="points">0</h2>
+    <button onclick="addPoints()">click</button>
+    <div>
+      <h3>Upgrades!</h3>
+      <span>Price: <span id="upgrade_1_price">10</span></span>
+      <button disabled id="upgrade_1" onclick="addUpgrade(5, 'upgrade_1')">
+        +5
+      </button>
+      <span>Price: <span id="upgrade_2_price">20</span></span>
+      <button disabled id="upgrade_2" onclick="addUpgrade(10, 'upgrade_2')">
+        +10
+      </button>
+    </div>
+    <div>Total clicks: <span id="clicks">0</span></div>
+    <div>Upgrades bought: <span id="upgradesBought">0</span></div>
     <script src="script.js"></script>
-    <script src="operatorer.js"></script>
   </body>
 </html>
