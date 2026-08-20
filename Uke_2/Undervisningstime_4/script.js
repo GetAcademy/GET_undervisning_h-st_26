@@ -20,18 +20,40 @@ function updateDisplay() {
   checkUpgradeButtons();
 }
 
-function addUpgrade(amount, buttonId) {
+function addUpgrade(amount, upgradeButton) {
+  let buttonId = upgradeButton.id;
+  console.log(buttonId);
   upgradesBought++;
   amountToAdd += amount;
-  points -= buttonId == "upgrade_1" ? upgradePrice1 : upgradePrice2;
-  upgradePrice1 = buttonId == "upgrade_1" ? upgradePrice1 * 2 : upgradePrice1;
-  upgradePrice2 = buttonId == "upgrade_2" ? upgradePrice2 * 2 : upgradePrice2;
+  if (buttonId == "upgrade_1") {
+    points -= upgradePrice1;
+    upgradePrice1 = upgradePrice1 * 2;
+  } else if (buttonId == "upgrade_2") {
+    points -= upgradePrice2;
+    upgradePrice2 = upgradePrice2 * 2;
+  } else {
+    console.log("Feil upgrade-knapp!");
+  }
+  // points -= buttonId == "upgrade_1" ? upgradePrice1 : upgradePrice2;
+  // upgradePrice1 = buttonId == "upgrade_1" ? upgradePrice1 * 2 : upgradePrice1;
+  // upgradePrice2 = buttonId == "upgrade_2" ? upgradePrice2 * 2 : upgradePrice2;
   updateDisplay();
 }
 
 function checkUpgradeButtons() {
-  document.getElementById("upgrade_1").disabled =
-    points > upgradePrice1 ? false : true;
-  document.getElementById("upgrade_2").disabled =
-    points > upgradePrice2 ? false : true;
+  if (points > upgradePrice1) {
+    document.getElementById("upgrade_1").disabled = false;
+  } else {
+    document.getElementById("upgrade_1").disabled = true;
+  }
+
+  if (points > upgradePrice2) {
+    document.getElementById("upgrade_2").disabled = false;
+  } else {
+    document.getElementById("upgrade_2").disabled = true;
+  }
+  // document.getElementById("upgrade_1").disabled =
+  //   points > upgradePrice1 ? false : true;
+  // document.getElementById("upgrade_2").disabled =
+  //   points > upgradePrice2 ? false : true;
 }

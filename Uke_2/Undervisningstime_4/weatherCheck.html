@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather check</title>
+  </head>
+  <body>
+    <h3>Check the weather!</h3>
+    <p>What temperature is it outside?</p>
+    <input type="number" onchange="weatherCheck(this.value)" />
+    <div id="message"></div>
+    <script>
+      const message = document.getElementById("message");
+
+      function weatherCheck(temperature) {
+        message.innerHTML = getMessage(temperature);
+      }
+      function getMessage(temperature) {
+        let newMessage = /*html*/ `<b>${temperature} grader</b> :`;
+        if (temperature <= 0) {
+          newMessage += "Det er kaldt ute";
+        } else if (temperature > 0 && temperature < 15) {
+          newMessage += "Litt kjørlig.";
+        } else if (temperature >= 15 && temperature < 25) {
+          newMessage += "varmt";
+        } else if (temperature >= 25) {
+          newMessage += "JEG SMELTER";
+        } else {
+          newMessage += "Feil input";
+        }
+        return newMessage;
+      }
+    </script>
+  </body>
+</html>

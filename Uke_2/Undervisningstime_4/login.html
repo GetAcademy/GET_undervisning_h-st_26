@@ -5,5 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log-in simulator</title>
   </head>
-  <body></body>
+  <body>
+    <input
+      oninput="saveUsername(this.value)"
+      type="text"
+      placeholder="username"
+    />
+    <input
+      onchange="savePassword(this.value)"
+      type="password"
+      placeholder="password"
+    />
+    <button onclick="checkLogIn()">Log Inn</button>
+
+    <div id="message">Du er ikke logget inn enda!</div>
+
+    <script>
+      const username = "bodil";
+      const password = "123abc";
+      const message = document.getElementById("message");
+      let inputUsername = "";
+      let inputPassword = "";
+
+      function saveUsername(newUsername) {
+        inputUsername = newUsername;
+      }
+      function savePassword(newPassword) {
+        inputPassword = newPassword;
+      }
+
+      function checkLogIn() {
+        if (username === inputUsername && password === inputPassword) {
+          message.innerHTML = "Du er logget inn!";
+        } else if (username !== inputUsername && password === inputPassword) {
+          message.innerHTML = "Feil brukernavn";
+        } else if (username === inputUsername && password !== inputPassword) {
+          message.innerHTML = "Feil passord";
+        } else {
+          message.innerHTML = "Brukernavn og passord er feil! :(";
+        }
+      }
+    </script>
+  </body>
 </html>
