@@ -12,6 +12,30 @@
     <script>
       const itemDisplay = document.getElementById("items");
       const cart = document.getElementById("cart");
+
+      generateItems();
+      function generateItems() {
+        itemDisplay.innerHTML = /*HTML*/ `
+            ${item("Kiwi", 39, "Fluffy og grønne!")}
+            ${item("Laptop", 8000, "Rask og helt ny, jeg lover")}
+            ${item("Coca Cola TM", 19, "Original siden 1450")}
+        `;
+      }
+
+      function item(name, price, description) {
+        return /*HTML*/ `
+            <div onclick="addToCart(this)">
+                <h3>${name}</h3>
+                <b>${price} kr</b>
+                <p>${description}</p>
+            </div>
+        `;
+      }
+
+      function addToCart(item) {
+        cart.innerHTML += `
+            <div>${item.innerHTML}</div>`;
+      }
     </script>
   </body>
 </html>

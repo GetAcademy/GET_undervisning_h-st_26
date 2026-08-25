@@ -5,6 +5,7 @@ let upgradesBought = 0;
 let upgradePrice1 = 10;
 let upgradePrice2 = 20;
 
+updateDisplay();
 function addPoints() {
   points += amountToAdd;
   clicks++;
@@ -13,40 +14,42 @@ function addPoints() {
 
 function updateDisplay() {
   document.getElementById("points").innerHTML = points;
-  document.getElementById("clicks").innerHTML = clicks;
-  document.getElementById("upgradesBought").innerHTML = upgradesBought;
-  document.getElementById("upgrade_1_price").innerHTML = upgradePrice1;
-  document.getElementById("upgrade_2_price").innerHTML = upgradePrice2;
+  document.getElementById("pointsDisplay").innerHTML = generateDisplay();
+  document.getElementById("upgrades").innerHTML = /*HTML*/ `
+    ${generateButton(upgradePrice1, 5)}
+    ${generateButton(upgradePrice2, 10)}
+  `;
   checkUpgradeButtons();
 }
 
-function addUpgrade(amount, upgradeButton) {
-  let buttonId = upgradeButton.id;
-  console.log(buttonId);
+function generateDisplay() {
+  return /*HTML*/ `
+    <div>Total clicks: ${points}</div>
+    <div>Upgrades bought: ${upgradesBought}</div>
+  `;
+}
+
+function addUpgrade(amount, price) {
   upgradesBought++;
   amountToAdd += amount;
-  if (buttonId == "upgrade_1") {
-    points -= upgradePrice1;
-    upgradePrice1 = upgradePrice1 * 2;
-  } else if (buttonId == "upgrade_2") {
-    points -= upgradePrice2;
-    upgradePrice2 = upgradePrice2 * 2;
+  points -= price;
+  if (amount == 5) {
+    upgradePrice1 = price * 2;
+  } else if (amount == 10) {
+    upgradePrice2 = price * 2;
   } else {
     console.log("Feil upgrade-knapp!");
   }
   updateDisplay();
 }
 
-function checkUpgradeButtons() {
-  if (points > upgradePrice1) {
-    document.getElementById("upgrade_1").disabled = false;
-  } else {
-    document.getElementById("upgrade_1").disabled = true;
-  }
+function generateButton(price, amount) {
+  return /*HTML*/ `
+      <span>Price: ${price}</span>
+      <button ${checkIfDisabled(price) ? "disabled" : ""} onclick="addUpgrade(${amount}, ${price})">+${amount}</button>
+  `;
+}
 
-  if (points > upgradePrice2) {
-    document.getElementById("upgrade_2").disabled = false;
-  } else {
-    document.getElementById("upgrade_2").disabled = true;
-  }
+function checkIfDisabled(price) {
+  return points < price;
 }

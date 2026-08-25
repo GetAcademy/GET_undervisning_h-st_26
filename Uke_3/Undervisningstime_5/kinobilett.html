@@ -10,6 +10,64 @@
     <button onclick="buyTicket()">Sjekk pris</button>
     <h3 id="result"></h3>
 
-    <script></script>
+    <script>
+      /*
+        Sjekke alder, hvis student og hvilken ukedag.
+        Billettene har forkjsellige priser for barn og senior, studentrabatt på hverdagene, 
+        og egne priser for helg
+    */
+      document.getElementById("app").innerHTML = ticketComponent();
+      function ticketComponent() {
+        return /*HTML*/ `
+        <div>
+              <h2>Kinobillett</h2>
+              <label for="age">Alder:</label>  
+              <input type="number" id="age">
+              <br>
+
+
+              <label for="day">Velg dag:</label>
+              <select id="day">
+                <option value="mandag">Mandag</option>
+                <option value="tirsdag">Tirsdag</option>
+                <option value="onsdag">Onsdag</option>
+                <option value="torsdag">Torsdag</option>
+                <option value="fredag">Fredag</option>
+                <option value="lørdag">Lørdag</option>
+                <option value="søndag">Søndag</option>
+                </select>
+
+                <br>
+              <label>
+                    <input type="checkbox" id="student">
+                    Jeg er student
+                </label>
+        </div>
+        `;
+      }
+
+      function buyTicket() {
+        const age = document.getElementById("age").value;
+        const day = document.getElementById("day").value;
+        const isStudent = document.getElementById("student").checked;
+
+        let price = getPrice(age, day, isStudent);
+        document.getElementById("result").innerHTML =
+          `Billetten koster ${price} kr`;
+      }
+
+      function getPrice(age, day, isStudent) {
+        if (age < 18 || age >= 67) {
+          return 100;
+        }
+        if (isStudent && day != "lørdag" && day != "søndag") {
+          return 120;
+        }
+        if (day == "lørdag" || day == "søndag") {
+          return 180;
+        }
+        return 150;
+      }
+    </script>
   </body>
 </html>
