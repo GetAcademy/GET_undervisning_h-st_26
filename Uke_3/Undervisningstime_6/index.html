@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduksjon til MVC</title>
+  </head>
+  <body>
+    <div>
+      <h1>Introduksjon til MVC</h1>
+      <h2>Dagens plan:</h2>
+      <ul>
+        <li>
+          <h3>Model View Controller (MVC)</h3>
+          <ul>
+            <li>
+              Et design pattern for å separere ansvar (separation of concerns)
+            </li>
+            <li>
+              <b>Model</b> - Her bor de globale variablene. Kan deles opp i tre
+              deler:
+              <ul>
+                <li>
+                  <b>App:</b> variabler som lagrer eller håndterer state på
+                  siden (eks hvem er logget inn, hvilken preferanser er satt,
+                  etc)
+                </li>
+                <li>
+                  <b>ViewState:</b> mellomlagring av eks inputs. Ment for å
+                  “tømmes” og gjenbrukes.
+                </li>
+                <li><b>Data:</b> hvor dataen skal lagres (dummy database)</li>
+              </ul>
+            </li>
+            <li>
+              <b>View</b> - Det grafiske (HTML) som vises på skjermen.
+              <ul>
+                <li>
+                  Funksjoner og komponenter som genererer eller returnerer HTML
+                  anses som en view-funksjon.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <b>Controller</b> - Funksjoner som oppdaterer dataene i modellen.
+              <ul>
+                <li>
+                  "Hjelpefunksjoner" som endrer på variabler, og/eller som gjør
+                  "bakgrunnsarbeid" som ikke direkte synes på skjermen.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h3>Eksempler</h3>
+          <ul>
+            <li>Endre på <b>Clicker-eksempelet</b> til å bruke MVC</li>
+            <li>Refaktorere <b>Kinobillett-eksempelet</b> til å bruke MVC</li>
+            <li>Lage et "gjenbrukbart" MVC-oppsett</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
