@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      //Model
+      //   const app = document.getElementById("app");
+      //   let currentPage = "homepage";
+
+      const model = {
+        app: {
+          display: document.getElementById("app"),
+          currentPage: "homepage",
+        },
+        viewState: {},
+        data: {},
+      };
+
+      //View
+      updateView();
+      function updateView() {
+        let page = "";
+        if (model.app.currentPage == "homepage") page = homePage();
+        if (model.app.currentPage == "profile") page = profilePage();
+        if (model.app.currentPage == "login") page = logInPage();
+
+        model.app.display.innerHTML = /*HTML*/ `
+            ${header()}
+            <main>${page}</main>
+        `;
+      }
+
+      function header() {
+        return /*HTML*/ `
+                <header>
+                    <button onclick="changePage('profile')">Profile</button>    
+                    <button onclick="changePage('homepage')">Homepage</button>   
+                    <button onclick="changePage('login')">Login</button>   
+                </header>
+            `;
+      }
+
+      function profilePage() {
+        return /*HTML*/ `
+                <h1>profilside</h1>
+            `;
+      }
+      function homePage() {
+        return /*HTML*/ `
+                <h1>homePage</h1>
+            `;
+      }
+
+      function logInPage() {
+        return /*HTML*/ `
+                <h1>logInPage</h1>
+            `;
+      }
+
+      //Controller
+
+      function changePage(newPage) {
+        model.app.currentPage = newPage;
+        updateView();
+      }
+    </script>
+  </body>
+</html>

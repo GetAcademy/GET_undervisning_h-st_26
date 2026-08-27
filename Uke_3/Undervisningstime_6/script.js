@@ -1,3 +1,5 @@
+//Modell
+const app = document.getElementById("app");
 let points = 0;
 let clicks = 0;
 let amountToAdd = 1;
@@ -5,30 +7,39 @@ let upgradesBought = 0;
 let upgradePrice1 = 10;
 let upgradePrice2 = 20;
 
-updateDisplay();
-function addPoints() {
-  points += amountToAdd;
-  clicks++;
-  updateDisplay();
-}
-
-function updateDisplay() {
-  document.getElementById("points").innerHTML = points;
-  document.getElementById("pointsDisplay").innerHTML = generateDisplay();
-  document.getElementById("upgrades").innerHTML = /*HTML*/ `
-    ${generateButton(upgradePrice1, 5)}
-    ${generateButton(upgradePrice2, 10)}
+//View
+updateView();
+function updateView() {
+  app.innerHTML = /*HTML*/ `
+    <h2>${points}</h2>
+    <button onclick="addPoints()">click</button>
+    <div>
+      <h3>Upgrades!</h3>
+      <div>
+        ${generateButton(upgradePrice1, 5)}
+        ${generateButton(upgradePrice2, 10)}
+      </div>
+    </div>
+    <div>${generateDisplay()}</div>
   `;
   checkUpgradeButtons();
 }
 
 function generateDisplay() {
   return /*HTML*/ `
-    <div>Total clicks: ${points}</div>
+    <div>Total clicks: ${clicks}</div>
     <div>Upgrades bought: ${upgradesBought}</div>
   `;
 }
 
+function generateButton(price, amount) {
+  return /*HTML*/ `
+      <span>Price: ${price}</span>
+      <button ${checkIfDisabled(price) ? "disabled" : ""} onclick="addUpgrade(${amount}, ${price})">+${amount}</button>
+  `;
+}
+
+//Controller
 function addUpgrade(amount, price) {
   upgradesBought++;
   amountToAdd += amount;
@@ -40,14 +51,13 @@ function addUpgrade(amount, price) {
   } else {
     console.log("Feil upgrade-knapp!");
   }
-  updateDisplay();
+  updateView();
 }
 
-function generateButton(price, amount) {
-  return /*HTML*/ `
-      <span>Price: ${price}</span>
-      <button ${checkIfDisabled(price) ? "disabled" : ""} onclick="addUpgrade(${amount}, ${price})">+${amount}</button>
-  `;
+function addPoints() {
+  points += amountToAdd;
+  clicks++;
+  updateView();
 }
 
 function checkIfDisabled(price) {

@@ -5,24 +5,38 @@
     <title>Kinobillett</title>
   </head>
   <body>
-    <h1>Kjøp kinobillett</h1>
     <div id="app"></div>
-    <button onclick="buyTicket()">Sjekk pris</button>
-    <h3 id="result"></h3>
 
     <script>
-      document.getElementById("app").innerHTML = ticketComponent();
+      //Model
+
+      const app = document.getElementById("app");
+      let result = "";
+      let ageInput = 0;
+      let dayInput = "";
+      let isStudent = false;
+
+      //View
+      updateView();
+      function updateView() {
+        app.innerHTML = /*HTML*/ `
+            <h1>Kjøp kinobillett</h1>
+            <div>${ticketComponent()}</div>
+            <button onclick="buyTicket()">Sjekk pris</button>
+            <h3>${result}</h3>
+        `;
+      }
       function ticketComponent() {
         return /*HTML*/ `
         <div>
               <h2>Kinobillett</h2>
               <label for="age">Alder:</label>  
-              <input type="number" id="age">
+              <input type="number" id="age" onchange="saveAge(this.value)">
               <br>
 
 
               <label for="day">Velg dag:</label>
-              <select id="day">
+              <select id="day" onchange="saveDay(this.value)">
                 <option value="mandag">Mandag</option>
                 <option value="tirsdag">Tirsdag</option>
                 <option value="onsdag">Onsdag</option>
@@ -34,7 +48,7 @@
 
                 <br>
               <label>
-                    <input type="checkbox" id="student">
+                    <input type="checkbox" onchange="saveIsStudent(this.checked)">
                     Jeg er student
                 </label>
         </div>
@@ -42,13 +56,28 @@
       }
 
       function buyTicket() {
-        const age = document.getElementById("age").value;
-        const day = document.getElementById("day").value;
-        const isStudent = document.getElementById("student").checked;
+        let price = getPrice(ageInput, dayInput, isStudent);
 
-        let price = getPrice(age, day, isStudent);
-        document.getElementById("result").innerHTML =
-          `Billetten koster ${price} kr`;
+        result = `Billetten koster ${price} kr`;
+        updateView();
+        resetInputs();
+      }
+      //Controller
+
+      function saveAge(newAge) {
+        ageInput = newAge;
+      }
+      function saveDay(newDay) {
+        dayInput = newDay;
+      }
+      function saveIsStudent(newIsStudent) {
+        isStudent = newIsStudent;
+      }
+
+      function resetInputs() {
+        ageInput = 0;
+        dayInput = "";
+        isStudent = false;
       }
 
       function getPrice(age, day, isStudent) {
