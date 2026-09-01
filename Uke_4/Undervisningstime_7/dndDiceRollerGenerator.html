@@ -16,6 +16,53 @@
   <body>
     <div id="app"></div>
 
-    <script></script>
+    <script>
+      const app = document.getElementById("app");
+      let result = "";
+      let diceSelect;
+
+      updateView();
+      function updateView() {
+        app.innerHTML = /*HTML*/ `
+            <h1>DnD Dice Roller Generator</h1>
+            <p>Velg hvilken terning du vil kaste:</p>
+
+            <select onchange="diceSelect = this.value">
+                <option value="" selected hidden>Velg terning</option>  
+                <option value="4">D4</option>
+                <option value="6">D6</option>
+                <option value="8">D8</option>
+                <option value="10">D10</option>
+                <option value="12">D12</option>
+                <option value="20">D20</option>  
+            </select>
+            <button onclick="rollDiceController()">Kast terning</button>
+            <h2>Resultat:</h2>
+            <h3>${result}</h3>
+            `;
+      }
+
+      function showResult(number, maxNumber) {
+        result = "Du kastet D" + maxNumber + " og fikk: " + number;
+        updateView();
+      }
+
+      function rollDice(maxNumber) {
+        // let randomNumber = Math.random();
+        // let randomNumberWithMax = randomNumber * maxNumber;
+        // let wholeNumber = Math.floor(randomNumberWithMax);
+        // let diceResult = wholeNumber +1;
+
+        return Math.floor(Math.random() * maxNumber) + 1;
+        //return diceResult;
+      }
+
+      function rollDiceController() {
+        if (!diceSelect) return;
+        let maxNumber = Number(diceSelect);
+        let number = rollDice(maxNumber);
+        showResult(number, maxNumber);
+      }
+    </script>
   </body>
 </html>

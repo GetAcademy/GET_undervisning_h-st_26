@@ -65,13 +65,13 @@ function minMaxExample() {
 
 // Math.random() lager et tilfeldig desimaltall.
 function mathRandomExample() {
-  console.log(Math.random());
+  //console.log(Math.random());
 
   let randomNumber = Math.floor(Math.random() * 10);
 
   let randomNumber2 = Math.floor(Math.random() * 10) + 1;
 
-  console.log();
+  console.log(randomNumber2);
 }
 
 // Tilfeldig tall mellom min og max
