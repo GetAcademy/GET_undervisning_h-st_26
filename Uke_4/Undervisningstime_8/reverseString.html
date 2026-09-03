@@ -8,6 +8,42 @@
   <body>
     <div id="app"></div>
 
-    <script></script>
+    <script>
+      //model
+      let originalText = "";
+      let reverseText = "";
+
+      //view
+      updateView();
+      function updateView() {
+        document.getElementById("app").innerHTML = /*HTML*/ `
+          <input
+            type="text"
+            value="${originalText}"
+            onchange="reverseController(this.value)"
+            placeholder="Skriv noe"
+          >
+          <p>Baklengs:</p>
+          <h3>${reverseText}</h3>
+        `;
+      }
+
+      //controller
+      function textReverser(text) {
+        let result = "";
+
+        for (let i = text.length - 1; i >= 0; i--) {
+          result += text[i];
+        }
+
+        return result;
+      }
+
+      function reverseController(text) {
+        originalText = text;
+        reverseText = textReverser(originalText);
+        updateView();
+      }
+    </script>
   </body>
 </html>

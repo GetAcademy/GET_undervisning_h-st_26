@@ -39,6 +39,7 @@
             >
             <button onclick="guess()">Gjett</button>
             <button onclick="init()">Start på nytt</button>
+            <button onclick="autoGuess()">Auto Guess</button>
     
             `;
       }
@@ -54,8 +55,27 @@
 
       //controller
 
+      function autoGuess() {
+        // while (true) {
+        //   guessCount++;
+        //   guessedNumber = getRandomNumber();
+        //   if (guessedNumber == secretNumber) {
+        //     break;
+        //   }
+        // }
+        while (guessedNumber != secretNumber) {
+          guessCount++;
+          guessedNumber = getRandomNumber();
+        }
+        updateView();
+      }
+
+      function getRandomNumber() {
+        return Math.floor(Math.random() * 100) + 1;
+      }
+
       function init() {
-        secretNumber = Math.floor(Math.random() * 100) + 1;
+        secretNumber = getRandomNumber();
         guessedNumber = null;
         guessCount = 0;
         updateView();
