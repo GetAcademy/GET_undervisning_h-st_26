@@ -9,6 +9,8 @@ _Temaene har underliggende funksjonalitet som vi også går igjennom. Disse modu
 - Modul 5 - Enhetstesting
 - Modul 6 - Objekter
 
+## Undervisningsplan
+
 | Uke | Dag     | Modul | Innhold                                                              |
 | --- | ------- | ----- | -------------------------------------------------------------------- |
 | 1   | Tirsdag | 1     | Intro + Verktøy + HTML + enkel CSS                                   |
