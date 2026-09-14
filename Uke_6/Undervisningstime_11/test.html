@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8" />
+  <title>QUnit</title>
+  <link
+    rel="stylesheet"
+    href="https://code.jquery.com/qunit/qunit-2.26.0.css"
+  />
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.26.0.js"></script>
+    <!-- <script src="your_app.test.js"></script> -->
+
+    <script>
+      function add(a, b) {
+        return a + 1;
+      }
+
+      QUnit.test("two numbers", function (assert) {
+        const expected = 3;
+        const actual = add(1,2)
+        assert.equal(expected, actual);
+      });
+
+    </script>
+  </body>
+</html>
