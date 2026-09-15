@@ -1,11 +1,12 @@
-
-function setTransformedNumber(numberToTransform) {
-    if(numberToTransform % 2==0){ numberToTransform * 2}
-    transformedNumber = numberToTransform
-    return transformedNumber
+function setTransformedNumber() {
+  transformedNumber = getTransformedNumber(numberToTransform);
 }
 
-function getTransformedNumber(numberToTransform){
-    transformedNumber = setTransformedNumber(numberToTransform)
-    return transformedNumber
+function getTransformedNumber(number) {
+  if (number < 0) return Math.abs(number);
+  if (number % 2 == 0) {
+    return number * 2;
+  } else {
+    return number * 3;
+  }
 }
