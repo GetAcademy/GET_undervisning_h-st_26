@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8" />
+  <title>QUnit</title>
+  <link
+    rel="stylesheet"
+    href="https://code.jquery.com/qunit/qunit-2.26.0.css"
+  />
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.26.0.js"></script>
+    <script src="controllers.js"></script>
+    <script>
+      // function add(a, b) {
+      //   if(Number(a)&&Number(b))return a+b
+      //   return "error, input not a number";
+      // }
+
+      // QUnit.test("sum of two numbers", function (assert) {
+      //   const expected = 3;
+      //   const acutal = add(1, 2);
+      //   assert.equal(acutal, expected);
+      // });
+
+      // QUnit.test("input is not numbers", function (assert) {
+      //   const expected = "error, input not a number";
+      //   const acutal = add("hello", 3)
+      //   assert.equal(acutal, expected);
+      // });
+
+      let points = 0;
+      let pointsPerClick = 1;
+      let smileyIndex;
+
+      function updateView() {}
+
+      QUnit.test("increases points by one", function (assert) {
+        points = 0;
+        const expected = 1;
+        doClick();
+        assert.equal(points, expected);
+      });
+
+      QUnit.test("increase pointsPerClick", function (assert) {
+        pointsPerClick = 1;
+        points = 10;
+        const expected = 2;
+        buyUpgrade();
+
+        assert.equal(pointsPerClick, expected);
+      });
+
+      QUnit.test("points -10 after upgrade", function (assert) {
+        points = 11;
+        const expected = 1;
+        buyUpgrade();
+        assert.equal(points,expected);
+      });
+
+    </script>
+  </body>
+</html>

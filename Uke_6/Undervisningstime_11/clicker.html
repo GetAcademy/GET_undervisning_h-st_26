@@ -38,6 +38,7 @@
       }
     </style>
     <script src="clicker.js"></script>
+    <script src="controllers.js"></script>
   </head>
 
   <body>
@@ -60,18 +61,6 @@
             `;
       }
 
-      function doClick() {
-        points += pointsPerClick;
-        smileyIndex = 1 - smileyIndex;
-        updateView();
-      }
-
-      function buyUpgrade() {
-        if (points < 10) return;
-        points -= 10;
-        pointsPerClick++;
-        updateView();
-      }
     </script>
   </body>
 </html>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-<title>QUnit</title>
-<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.22.0.css">
-
-<body>
+  <meta charset="utf-8" />
+  <title>QUnit</title>
+  <link
+    rel="stylesheet"
+    href="https://code.jquery.com/qunit/qunit-2.26.0.css"
+  />
+  <body>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
-    <script src="https://code.jquery.com/qunit/qunit-2.22.0.js"></script>
+    <script src="https://code.jquery.com/qunit/qunit-2.26.0.js"></script>
     <script src="numberTransformer.js"></script>
 
     <script>
@@ -15,8 +17,11 @@
         let numberToTransform = 2;
 
         function updateView() {}
-        QUnit.test('Correct number is set', function (assert) {            
-            setTransformedNumber();
+
+        QUnit.test('Correct number is set', function (assert) {     
+            transformedNumber;
+            numberToTransform = 2;       
+            setTransformedNumber(numberToTransform);
             assert.equal(transformedNumber, 4);
         });
 
