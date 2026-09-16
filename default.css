@@ -233,3 +233,21 @@ input[type="radio"] {
 * {
   scrollbar-color: var(--border) var(--bg);
 }
+
+.deleted {
+  color: #9a9a9a;
+  text-decoration: line-through;
+}
+.deleted td button {
+  color: var(--bg);
+  background-color: var(--text);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
