@@ -1,5 +1,5 @@
 //View
-updateView();
+
 function updateView() {
   let page = "";
   if (model.app.currentPage == "homepage") page = homePage();
@@ -12,10 +12,11 @@ function updateView() {
 }
 
 function homePage() {
+  const user = model.app.currentUser;
   return /*HTML*/ `
-    <button>Log out</button>
-    <h2>Welcome user</h2>
-    <p></p>
+    <button onclick="logOut()">Log out</button>
+    <h2>Welcome ${user.name}</h2>
+    <p>${user.bio}</p>
     `;
 }
 
@@ -23,10 +24,10 @@ function logInPage() {
   return /*HTML*/ `
     <h2>Log In</h2>
       <form>
-        <input type="text" placeholder="username" >
-        <input type="text" placeholder="password" >
+        <input type="text" placeholder="username" oninput="model.viewState.login.username=this.value">
+        <input type="text" placeholder="password" oninput="model.viewState.login.password=this.value">
     </form>
-    <button>Log in</button>
-
+    <button onclick="checkLogIn()">Log in</button>
+    <p>${model.viewState.loginMessage}</p>  
     `;
 }
