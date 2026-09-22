@@ -9,6 +9,8 @@ function addUserView() {
                         id="userName"
                         type="text"
                         placeholder="Enter name"
+                        value="${model.viewState.addUser.name}"
+                        oninput="model.viewState.addUser.name = this.value"
                     >
                 </div>
                 <div class="input-group">
@@ -17,10 +19,12 @@ function addUserView() {
                         type="email"
                         id="userEmail"
                         placeholder="Enter email"
+                        value="${model.viewState.addUser.email}"
+                        oninput="model.viewState.addUser.email = this.value"
                 >
                 </div>
-                <button type="submit" class="add-user-btn" onclick="">Add user</button>
-                <button type="submit" class="cancel-btn" onclick="">Cancel</button>
+                <button type="submit" class="add-user-btn" onclick="addUser()">Add user</button>
+                <button type="submit" class="cancel-btn" onclick="cancleAddUser()">Cancel</button>
             </form>
         </div>
     `;
