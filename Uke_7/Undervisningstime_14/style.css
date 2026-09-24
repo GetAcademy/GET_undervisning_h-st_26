@@ -3,27 +3,3 @@
     background-color: lightcoral;
   }
 }
-
-/*
-.container {
-  display: flex;
-  gap: 20px;
-}
-
-.card {
-  width: 33%;
-}
-
-@media (max-width: 600px) {
-
-  .container {
-    flex-direction: column;
-  }
-
-  .card {
-    width: 100%;
-  }
-
-}
-
-*/
