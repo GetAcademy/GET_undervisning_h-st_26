@@ -23,6 +23,10 @@ const model = {
           "Utforske Grünerløkka",
           "Ta badstue ved fjorden",
         ],
+        image: {
+          url: "assets/default.jpg",
+          alt: "",
+        },
       },
 
       {
@@ -40,6 +44,10 @@ const model = {
           "Besøke Fisketorget",
           "Dra på fjordtur",
         ],
+        image: {
+          url: "assets/default.jpg",
+          alt: "",
+        },
       },
 
       {
@@ -57,6 +65,10 @@ const model = {
           "Ta Fjellheisen",
           "Dra på hvalsafari",
         ],
+        image: {
+          url: "assets/default.jpg",
+          alt: "",
+        },
       },
 
       {
@@ -74,6 +86,10 @@ const model = {
           "Surfe på Unstad",
           "Oppleve midnattssolen",
         ],
+        image: {
+          url: "assets/default.jpg",
+          alt: "",
+        },
       },
 
       {
@@ -91,6 +107,10 @@ const model = {
           "Utforske Fargegaten",
           "Besøke Norsk Oljemuseum",
         ],
+        image: {
+          url: "assets/default.jpg",
+          alt: "",
+        },
       },
 
       {
@@ -108,6 +128,10 @@ const model = {
           "Utforske Bakklandet",
           "Besøke Kristiansten festning",
         ],
+        image: {
+          url: "assets/default.jpg",
+          alt: "",
+        },
       },
     ],
   },

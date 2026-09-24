@@ -9,12 +9,10 @@ function updateView() {
   }
 
   model.app.innerHTML = /*HTML*/ `
-  <header>
-            <h1>Utforsk Norge</h1>
-            <p>
-                Oppdag noen spennende steder å besøke.
-            </p>
-        </header>
+      <header>
+          <h1>Utforsk Norge</h1>
+          <p>Oppdag noen spennende steder å besøke.</p>
+      </header>
       <main>${page}</main>
       <footer>
         <p>Utforsk Norge</p>
@@ -53,13 +51,22 @@ function detailsView() {
       <section>
         <button onclick="goBack()">← Tilbake</button>
             <article>
+              <div>
+                <img src=${place.image.url} alt=${place.image.alt}>
+              </div>
                 <h1>${place.title}</h1>
                 <span>${place.category}</span>
                 <p>${place.description}</p>
                 <section>
                     <h2>Informasjon</h2>
-                    <p><strong>Region:</strong>${place.region}</p>
-                    <p><strong>Innbyggere:</strong>${place.population}</p>
+                    <p>
+                      <span>Region:</span>
+                      <span>${place.region}</span>
+                    </p>
+                    <p>
+                      <span>Innbyggere:</span>
+                      <span>${place.population}</span>
+                    </p>
                 </section>
                 <section>
                     <h2>Ting å gjøre</h2>
