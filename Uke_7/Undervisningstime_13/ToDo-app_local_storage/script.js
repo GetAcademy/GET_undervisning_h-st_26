@@ -4,7 +4,20 @@ const model = {
   app: document.getElementById("app"),
   viewState: {},
   data: {
-    list: [
+    list: [],
+  },
+};
+
+function saveList() {
+  localStorage.setItem("todoList", JSON.stringify(model.data.list));
+}
+
+function loadList() {
+  const savedList = localStorage.getItem("todoList");
+  if (savedList) {
+    model.data.list = JSON.parse(savedList);
+  } else {
+    model.data.list = [
       {
         title: "Handle middag",
         isEdit: false,
@@ -17,11 +30,12 @@ const model = {
         title: "Hente svigermor fra mentalsykehuset",
         isEdit: false,
       },
-    ],
-  },
-};
+    ];
+  }
+}
 
 //View
+loadList();
 updateView();
 function updateView() {
   model.app.innerHTML = /*HTML*/ `
@@ -78,6 +92,7 @@ function addItem(newItem) {
     title: newItem,
     isEdit: false,
   });
+  saveList();
   updateView();
 }
 
@@ -89,10 +104,12 @@ function startEdit(index) {
 function editItem(index, newValue) {
   model.data.list[index].title = newValue;
   model.data.list[index].isEdit = false;
+  saveList();
   updateView();
 }
 
 function deleteItem(index) {
   model.data.list.splice(index, 1);
+  saveList();
   updateView();
 }

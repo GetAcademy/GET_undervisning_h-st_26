@@ -1,0 +1,58 @@
+/* Enkel CSS-reset */
+
+/* Gjør at padding og border regnes med i elementets størrelse */
+* {
+  box-sizing: border-box;
+}
+
+/* Fjerner nettleserens standard-marg og gir siden full høyde */
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+/* Bilder skal ikke bli bredere enn området de ligger i */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Skjemaelementer bruker samme font som resten av nettsiden */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* a,
+button {
+  font-style: normal;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: none;
+} */
+
+ul,
+menu {
+  list-style-type: lower-roman;
+}
+
+header {
+  z-index: 99;
+  position: relative;
+  height: 100px;
+}
+
+header div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.303);
+  width: 100%;
+  padding-left: 10px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.622);
+  backdrop-filter: blur(5px);
+}
