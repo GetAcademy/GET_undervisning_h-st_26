@@ -10,10 +10,12 @@ function updateView() {
 
   model.app.innerHTML = /*HTML*/ `
       <header>
+        <div>
           <h1>Utforsk Norge</h1>
           <p>Oppdag noen spennende steder å besøke.</p>
+        </div>
       </header>
-      <main>${page}</main>
+      <main class="flex column">${page}</main>
       <footer>
         <p>Utforsk Norge</p>
       </footer>
@@ -24,7 +26,7 @@ function homeView() {
   return /*HTML*/ `
             <section>
                 <h2>Reisemål</h2>
-                <div>${displayCards()}</div>
+                <div class="flex gap-2rem card-container">${displayCards()}</div>
             </section>
     `;
 }
@@ -34,7 +36,7 @@ function displayCards() {
   for (let i = 0; i < model.data.places.length; i++) {
     const place = model.data.places[i];
     html += /*HTML*/ `
-            <article>
+            <article class="card">
                 <h2>${place.title}</h2>
                 <span>${place.category}</span>
                 <p>${place.shortDescription}</p>
@@ -51,7 +53,7 @@ function detailsView() {
       <section>
         <button onclick="goBack()">← Tilbake</button>
             <article>
-              <div>
+              <div class="image-container">
                 <img src=${place.image.url} alt=${place.image.alt}>
               </div>
                 <h1>${place.title}</h1>

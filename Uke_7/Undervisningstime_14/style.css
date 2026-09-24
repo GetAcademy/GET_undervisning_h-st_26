@@ -6,8 +6,8 @@
 
 h1 {
   transition:
-    font-size 2s,
-    color 2s;
+    font-size 1s,
+    color 5s;
 }
 
 h1:hover {
