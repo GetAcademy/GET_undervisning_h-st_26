@@ -1,7 +1,8 @@
 function adminHeaderButton(textContent, pageName) {
   let className = "";
   if (model.app.currentPage !== pageName) className = "defaultButton";
+  console.log(pageName);
   return /*HTML*/ `
-    <button class="adminButton ${className}">${textContent}</button>
+    <button onclick="changePage(${pageName})" class="adminButton ${className}">${textContent}</button>
 `;
 }

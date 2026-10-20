@@ -2,9 +2,9 @@ function header() {
   return /*HTML*/ `
     <div class="flex gap-1rem">
             ${adminHeaderButton("Lagerbeholdning", "adminStorage")}
-            ${adminHeaderButton("Ordre")}
-            ${adminHeaderButton("Ordrehistorie")}
-            ${adminHeaderButton("Registrer ny ansatt")}
+            ${adminHeaderButton("Ordre", "orderPage")}
+            ${adminHeaderButton("Ordrehistorie", "orderHistoryPage")}
+            ${adminHeaderButton("Registrer ny ansatt", "RegisterNewEmployeePage")}
         </div>
     <div class="flex gap-1rem align-items-center">
             <div class="headerText">
